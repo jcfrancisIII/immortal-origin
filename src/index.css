@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,900,900i');
+
+/* generic style */
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+  }
+
+  a {
+    color: #FFBA00;
+    text-decoration: none;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    display: inline-block;
+  }
+
+  a:hover, a:focus {
+    color: #DA7400;
+  }
+
+  a:active {
+    transform: translateY(1px);
+    -webkit-transform: translateY(1px);
+  }
+
+/* end generic style */
+
+/* nav style */
+
+  .navbar-default {
+    background-image: none;
+    box-shadow: 0px 0px 0px #fff;
+    border-radius: 0px;
+    background-color: #f4f4f4;
+  }
+
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .active > a {
+    background-image: none;
+    box-shadow: 0px 0px 0px #fff;
+  }
+
+/* end nav style */
+
+/* button style */
+  .navWrap .nav {
+    display: block;
+    cursor: pointer;
+    border-radius: 14px;
+    margin: 0 0 15px;
+    width: 46%;
+    float: left;
+    text-align: center;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(50%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(255, 255, 255, 0.1))), /* dark outside gradient */ -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(210, 210, 210, 0.3)), color-stop(20%, rgba(210, 210, 210, 0)), color-stop(80%, rgba(210, 210, 210, 0)), color-stop(100%, rgba(210, 210, 210, 0.3))), /* light inner gradient */ -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(20%, rgba(255, 255, 255, 0.3)), color-stop(80%, rgba(255, 255, 255, 0.3)), color-stop(100%, rgba(255, 255, 255, 0)));
+    transition: all 0.15s;
+    -webkit-transition: all 0.15s;
+    line-height: 117px;
+  }
+  .navWrap .nav img {
+    width: 100%;
+  }
+  .navWrap .nav.ebay img {
+    max-width: 256px;
+  }
+  .navWrap .nav.amazon img {
+    max-width: 438px;
+  }
+    
+  .navWrap .nav:first-child {
+    margin-right: 8%;
+  }
+  .navWrap .nav:hover {
+    transform: translate3d(0, 2px, 0);
+    -ms-transform: translate3d(0, 2px, 0);
+    -webkit-transform: translate3d(0, 2px, 0);
+  }
+  .navWrap .nav:active {
+    transform: translate3d(0, 6px, 0);
+    -ms-transform: translate3d(0, 6px, 0);
+    -webkit-transform: translate3d(0, 6px, 0);
+  }
+  .navWrap .nav.ebay {
+    background-color: #FFBA00;
+    -webkit-box-shadow: 0px 3px 7px rgba(255, 255, 255, 0.3), 0px 6px 0px 0px #C38E00, 0px 10px 6px -1px #A1A1A1;
+    box-shadow: 0px 3px 7px rgba(255, 255, 255, 0.3), 0px 6px 0px 0px #C38E00, 0px 10px 6px -1px #A1A1A1;
+  }
+  .navWrap .nav.ebay:hover {
+    -webkit-box-shadow: 0px 3px 7px rgba(255, 255, 255, 0.3), 0px 4px 0px 0px #C38E00, 0px 7px 6px -1px #A1A1A1;
+    box-shadow: 0px 3px 7px rgba(255, 255, 255, 0.3), 0px 4px 0px 0px #C38E00, 0px 7px 6px -1px #A1A1A1;
+  }
+  .navWrap .nav.ebay:active {
+    -webkit-box-shadow: 0px 3px 7px rgba(255, 255, 255, 0.3), 0px 2px 0px 0px #C38E00, 0px 3px 6px -1px #A1A1A1;
+    box-shadow: 0px 3px 7px rgba(255, 255, 255, 0.3), 0px 2px 0px 0px #C38E00, 0px 3px 6px -1px #A1A1A1;
+  }
+/* end button style */
