@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
 
 import {
     BrowserRouter as Router,
@@ -10,6 +9,7 @@ import Navigation from './Navigation.js'
 import Home from './Home.js'
 import Products from './Products.js'
 import Contact from './Contact.js'
+import Footer from './Footer.js'
 
 class App extends Component {
   render() {
@@ -19,9 +19,13 @@ class App extends Component {
           <div>
             <Navigation />
 
-            <Route exact path="/" component={Home}/>
-            <Route path="/products" component={Products}/>
-            <Route path="/contact" component={Contact}/>
+            <div className="content">
+              <Route exact path="/" component={Home}/>
+              <Route path="/products" component={Products}/>
+              <Route path="/contact" component={Contact}/>
+            </div>
+
+            <Footer />
           </div>
         </Router>
       </div>
@@ -29,4 +33,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App
