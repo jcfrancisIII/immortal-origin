@@ -31,7 +31,7 @@
 
 /* end generic style */
 
-/* nav style */
+/* nav/footer style */
 
   .navbar {
     margin-bottom: 0;
@@ -54,22 +54,17 @@
     box-shadow: 0px 0px 0px #fff;
   }
 
-  .navbar-nav > li.fb > a {
-    padding-top: 13px;
-    padding-bottom: 10px;
-  }
-
-  .navbar-nav > li.fb > a > svg > path {
+  footer a.fb > svg > path {
     fill: #a5a5a5;
     transition: all 300ms ease;
     -webkit-transition: all 300ms ease;
   }
 
-  .navbar-nav > li.fb > a:hover > svg > path {
+  footer a.fb:hover > svg > path {
     fill: #454547;
   }
 
-/* end nav style */
+/* end nav/footer style */
 
 /* button style */
   .navWrap .nav {
@@ -122,3 +117,10 @@
     box-shadow: 0px 3px 7px rgba(255, 255, 255, 0.3), 0px 2px 0px 0px #C38E00, 0px 3px 6px -1px #A1A1A1;
   }
 /* end button style */
+
+/* products style */
+  .products > p {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+/* end products style */
