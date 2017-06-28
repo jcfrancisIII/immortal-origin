@@ -14,10 +14,10 @@ class Products extends Component {
     var _this = this
     this.serverRequest = 
       axios
-        .get("/services/search/FindingService/v1?OPERATION-NAME=findItemsAdvanced&SECURITY-APPNAME=JamesFra-Immortal-PRD-b8e35c535-2b37f584&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&itemFilter(0).name=Seller&itemFilter(0).value(0)=immortalorigin&itemFilter(1).name=LocatedIn&itemFilter(1).value=WorldWide&paginationInput.entriesPerPage=3")
+        .get("/services/search/FindingService/v1?OPERATION-NAME=findItemsAdvanced&SECURITY-APPNAME=JamesFra-Immortal-PRD-b8e35c535-2b37f584&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&itemFilter(0).name=Seller&itemFilter(0).value(0)=immortalorigin&itemFilter(1).name=LocatedIn&itemFilter(1).value=WorldWide&paginationInput.entriesPerPage=5")
         .then(function(result) {    
-          console.log(result.data.findItemsAdvancedResponse[0].searchResult[0].item)
-          console.log(result.data.findItemsAdvancedResponse[0].searchResult[0].item[0].sellingStatus[0].currentPrice[0])
+          //console.log(result.data.findItemsAdvancedResponse[0].searchResult[0].item)
+          //console.log(result.data.findItemsAdvancedResponse[0].searchResult[0].item[0].sellingStatus[0].currentPrice[0])
           _this.setState({
             jobs: result.data.findItemsAdvancedResponse[0].searchResult[0].item
           })
@@ -67,6 +67,9 @@ class Products extends Component {
             </Row>
           )}
         </Grid>
+        <a href="http://www.ebay.com/usr/immortalorigin" className="big-button">
+          Shop on eBay
+        </a>
       </div>
     )
   }

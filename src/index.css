@@ -9,7 +9,7 @@
   }
 
   a {
-    color: #FFBA00;
+    color: #ea7710;
     text-decoration: none;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
@@ -17,7 +17,7 @@
   }
 
   a:hover, a:focus {
-    color: #DA7400;
+    color: #FFBA00;
   }
 
   a:active {
@@ -27,6 +27,10 @@
 
   .content {
     text-align: center;
+  }
+
+  hr {
+    margin-top: 0;
   }
 
 /* end generic style */
@@ -64,63 +68,147 @@
     fill: #454547;
   }
 
+  @media (max-width: 370px) {
+
+    .navbar-brand {
+      width: 220px;
+    }
+
+  }
+
 /* end nav/footer style */
 
 /* button style */
-  .navWrap .nav {
-    display: block;
+  .big-button {
+    display: inline-block;
     cursor: pointer;
     border-radius: 14px;
     margin: 0 0 15px;
-    width: 46%;
-    float: left;
+    widows: auto; 
     text-align: center;
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(50%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(255, 255, 255, 0.1))), /* dark outside gradient */ -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(210, 210, 210, 0.3)), color-stop(20%, rgba(210, 210, 210, 0)), color-stop(80%, rgba(210, 210, 210, 0)), color-stop(100%, rgba(210, 210, 210, 0.3))), /* light inner gradient */ -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(20%, rgba(255, 255, 255, 0.3)), color-stop(80%, rgba(255, 255, 255, 0.3)), color-stop(100%, rgba(255, 255, 255, 0)));
     transition: all 0.15s;
     -webkit-transition: all 0.15s;
-    line-height: 117px;
-  }
-  .navWrap .nav img {
-    width: 100%;
-  }
-  .navWrap .nav.ebay img {
-    max-width: 256px;
-  }
-  .navWrap .nav.amazon img {
-    max-width: 438px;
-  }
-    
-  .navWrap .nav:first-child {
-    margin-right: 8%;
-  }
-  .navWrap .nav:hover {
-    transform: translate3d(0, 2px, 0);
-    -ms-transform: translate3d(0, 2px, 0);
-    -webkit-transform: translate3d(0, 2px, 0);
-  }
-  .navWrap .nav:active {
-    transform: translate3d(0, 6px, 0);
-    -ms-transform: translate3d(0, 6px, 0);
-    -webkit-transform: translate3d(0, 6px, 0);
-  }
-  .navWrap .nav.ebay {
+    line-height: 1em;
+    padding: 0.7em 1.7em;
+    color: #fff;
     background-color: #FFBA00;
     -webkit-box-shadow: 0px 3px 7px rgba(255, 255, 255, 0.3), 0px 6px 0px 0px #C38E00, 0px 10px 6px -1px #A1A1A1;
     box-shadow: 0px 3px 7px rgba(255, 255, 255, 0.3), 0px 6px 0px 0px #C38E00, 0px 10px 6px -1px #A1A1A1;
+    font-size: 24px;
+    font-weight: 900;
   }
-  .navWrap .nav.ebay:hover {
+  .big-button:hover {
+    transform: translate3d(0, 2px, 0);
+    -ms-transform: translate3d(0, 2px, 0);
+    -webkit-transform: translate3d(0, 2px, 0);
+    color: #fff;
+    text-decoration: none;
     -webkit-box-shadow: 0px 3px 7px rgba(255, 255, 255, 0.3), 0px 4px 0px 0px #C38E00, 0px 7px 6px -1px #A1A1A1;
     box-shadow: 0px 3px 7px rgba(255, 255, 255, 0.3), 0px 4px 0px 0px #C38E00, 0px 7px 6px -1px #A1A1A1;
   }
-  .navWrap .nav.ebay:active {
+  .big-button:active {
+    transform: translate3d(0, 6px, 0);
+    -ms-transform: translate3d(0, 6px, 0);
+    -webkit-transform: translate3d(0, 6px, 0);
     -webkit-box-shadow: 0px 3px 7px rgba(255, 255, 255, 0.3), 0px 2px 0px 0px #C38E00, 0px 3px 6px -1px #A1A1A1;
     box-shadow: 0px 3px 7px rgba(255, 255, 255, 0.3), 0px 2px 0px 0px #C38E00, 0px 3px 6px -1px #A1A1A1;
   }
 /* end button style */
 
+/* home style */
+
+  .home {
+    background-image: url('images/office.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 100px 0;
+  }
+
+  .home h1 {
+    width: 989px;
+    margin: 0 auto;
+    display: block;
+  }
+
+/* end home style */
+
 /* products style */
+
+  .products {
+    margin-bottom: 20px;
+  }
+
   .products > p {
     max-width: 800px;
     margin: 0 auto;
   }
+
+  .products .ebay-list .row {
+    margin-top: 2em;
+  }
+
+  .products .ebay-list .row > div:first-of-type {
+    text-align: right;
+  }
+
+  .products .ebay-list .row > div:last-of-type {
+    text-align: left;
+  }
+
+  .products .ebay-list h2 {
+    font-size: 18px;
+    margin-top: 0;
+  }
+
+  .products .ebay-list p {
+    margin-bottom: 0;
+  }
+
+  .products .ebay-list .category {
+    color: #888;
+  }
+
+  .products .ebay-list .price {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .products .big-button {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 992px) {
+
+    .products .ebay-list h2 {
+      margin-top: 1em;
+    }
+
+    .products .ebay-list .row > div:first-of-type {
+      text-align: center;
+    }
+
+    .products .ebay-list .row > div:last-of-type {
+      text-align: center;
+    }
+
+  }
+
 /* end products style */
+
+/* contact style */
+
+  .contact {
+    margin-bottom: 20px;
+  }
+
+  .contact.container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 992px) {
+
+  }
+
+/* end contact style */

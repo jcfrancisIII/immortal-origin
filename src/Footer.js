@@ -5,7 +5,7 @@ const Footer = () => (
     <hr />
     <footer className="row">
       <div className="col-sm-3">
-          <p>© Repair Origin 2017</p>
+          <p>© Immortal Origin {new Date().getFullYear()}</p>
       </div>
       <div className="col-sm-9">
         <a href="https://www.facebook.com" className="fb pull-right" >
