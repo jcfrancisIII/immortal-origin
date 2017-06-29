@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import Form from 'react-formal'
 import yup from 'yup'
-import { FormGroup, FormControl, HelpBlock } from 'react-bootstrap'
+import types from 'react-formal-bootstrap'
 
+import FormGroup from 'react-formal-bootstrap/lib/FormGroup'
 
+import { HelpBlock } from 'react-bootstrap'
+
+Form.addInputTypes(types)
 
 class Contact extends Component {
 
@@ -13,38 +18,76 @@ class Contact extends Component {
     this.defaultStr = yup.string().default('')
 
     this.modelSchema = yup.object({
-
-        name: yup.object({
-          first: this.defaultStr.required('First name is required.'),
-          last:  this.defaultStr.required('Last name is required.')
-        }),
-
-        email: this.defaultStr.required('Email is required.'),
+        name: this.defaultStr.required('Name is required.'),
+        email: this.defaultStr.email('Valid email is required.').required('Email is required.'),
         subject: this.defaultStr.required('Subject is required.'),
         message: this.defaultStr
       });
+
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleInputChange(event) {
+    const target = event.target
+    const value = target.value
+    const name = target.name
+
+    this.setState({
+      [name]: value
+    })
+  }
+
+  handleSubmit(event) {
+    if ( this.modelSchema.isValid(this.state) ) {
+
+    } else {
+      
+    }
+    event.preventDefault();
   }
 
   render() {
+   this.modelSchema.isValid({ name: {first: 'jc', last: 'francis'}, email: 'yes@yes.com', subject: 'a' }).then(value => console.log('validate: ', value))
     return (
-      <Form
-        schema={this.modelSchema}
-        defaultValue={this.modelSchema.default()}
-      >
-        <Form.Field name="name.first" placeholder="First name*"/>
-        <Form.Field name="name.last" placeholder="Last name*"/>
-        <Form.Message for={["name.first", "name.last"]}/>
+      <div className="container contact">
+        <h1>Contact Us</h1>
+        <p>
+          Contact us for any questions, wholesale opportunities, or if you have inventory you're looking to sell.
+        </p>
+        <Form
+          schema={this.modelSchema}
+          defaultValue={this.modelSchema.default()}
+          onSubmit={this.handleSubmit}
+        >
+          <FormGroup for={"name"} controlId="field--name">
+            <Form.Field className="form-control" name="name" placeholder="Name*"/>
+            <HelpBlock>
+              <Form.Message for={"name"}/>
+            </HelpBlock>
+          </FormGroup>
 
-        <Form.Field name="email" placeholder="Email*"/>
-        <Form.Message for="email"/>
+          <FormGroup for="email" controlId="field--email">
+            <Form.Field className="form-control" name="email" placeholder="Email*"/>
+            <HelpBlock>
+              <Form.Message for="email"/>
+            </HelpBlock>
+          </FormGroup>
 
-        <Form.Field name="subject" placeholder="Subject*"/>
-        <Form.Message for="subject"/>
+          <FormGroup for="subject" controlId="field--subject">
+            <Form.Field className="form-control" name="subject" placeholder="Subject*"/>
+            <HelpBlock>
+              <Form.Message for="subject"/>
+            </HelpBlock>
+          </FormGroup>
 
-        <Form.Field name="message" placeholder="Message"/>
+          <FormGroup controlId="field--message">
+            <Form.Field className="form-control" name="message" type="textarea" placeholder="Message"/>
+          </FormGroup>
 
-        <Form.Button type="submit" className="big-button">Submit</Form.Button>
-      </Form>
+          <Form.Button type="submit" className="big-button">Submit</Form.Button>
+        </Form>
+      </div>
     )
   }
 
