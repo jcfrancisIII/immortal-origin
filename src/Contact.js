@@ -24,31 +24,49 @@ class Contact extends Component {
         message: this.defaultStr
       });
 
-    this.handleInputChange = this.handleInputChange.bind(this)
+    this.state = {
+      model: {}
+    }
+
+    //this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleInputChange(event) {
-    const target = event.target
-    const value = target.value
-    const name = target.name
+  // handleInputChange(event) {
+  //   const target = event.target
+  //   const value = target.value
+  //   const name = target.name
 
-    this.setState({
-      [name]: value
-    })
+  //   this.setState({
+  //     [name]: value
+  //   })
+  // }
+
+  handleChange(model) {
+    this.setState({model})
+
+    console.log('change: ' + this.state)
+
   }
 
   handleSubmit(event) {
-    if ( this.modelSchema.isValid(this.state) ) {
 
-    } else {
-      
-    }
-    event.preventDefault();
+    console.log(this.state)    
+
+    axios({
+      method: 'post',
+      url: 'https://formspree.io/jamescecilfrancis@gmail.com', 
+      data: this.state.model,
+      dataType: 'json'
+    })
+    .then(function(result) {
+      console.log(result)
+    })
+
   }
 
   render() {
-   this.modelSchema.isValid({ name: {first: 'jc', last: 'francis'}, email: 'yes@yes.com', subject: 'a' }).then(value => console.log('validate: ', value))
     return (
       <div className="container contact">
         <h1>Contact Us</h1>
@@ -58,6 +76,8 @@ class Contact extends Component {
         <Form
           schema={this.modelSchema}
           defaultValue={this.modelSchema.default()}
+          value={this.state.model}
+          onChange={this.handleChange}
           onSubmit={this.handleSubmit}
         >
           <FormGroup for={"name"} controlId="field--name">
