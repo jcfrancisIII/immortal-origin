@@ -25,7 +25,8 @@ class Contact extends Component {
       });
 
     this.state = {
-      model: {}
+      model: {},
+      notSubmitted: true
     }
 
     //this.handleInputChange = this.handleInputChange.bind(this)
@@ -49,7 +50,9 @@ class Contact extends Component {
   }
 
   handleChange(model) {
-    this.setState({model})
+    this.setState({
+      model: model
+    })
 
     console.log('change: ' + this.state)
 
@@ -59,6 +62,8 @@ class Contact extends Component {
 
     console.log(this.state)    
 
+    const _this = this
+
     axios({
       method: 'post',
       url: 'https://formspree.io/jamescecilfrancis@gmail.com', 
@@ -66,52 +71,69 @@ class Contact extends Component {
       dataType: 'json'
     })
     .then(function(result) {
-      console.log(result)
+      _this.handleSuccess()
     })
 
+  }
+
+  handleSuccess() {
+    this.setState({
+      notSubmitted: false
+    })
   }
 
   render() {
     return (
       <div className="container contact">
-        <h1>Contact Us</h1>
-        <p>
-          Contact us for any questions, wholesale opportunities, or if you have inventory you're looking to sell.
-        </p>
-        <Form
-          schema={this.modelSchema}
-          defaultValue={this.modelSchema.default()}
-          value={this.state.model}
-          onChange={this.handleChange}
-          onSubmit={this.handleSubmit}
-        >
-          <FormGroup for={"name"} controlId="field--name">
-            <Form.Field className="form-control" name="name" placeholder="Name*"/>
-            <HelpBlock>
-              <Form.Message for={"name"}/>
-            </HelpBlock>
-          </FormGroup>
+        {this.state.notSubmitted ? (
+          <div>
+            <h1>Contact Us</h1>
+            <p>
+              Contact us for any questions, wholesale opportunities, or if you have inventory you're looking to sell.
+            </p>
+            <Form
+              schema={this.modelSchema}
+              defaultValue={this.modelSchema.default()}
+              value={this.state.model}
+              onChange={this.handleChange}
+              onSubmit={this.handleSubmit}
+            >
+              <FormGroup for={"name"} controlId="field--name">
+                <Form.Field className="form-control" name="name" placeholder="Name*"/>
+                <HelpBlock>
+                  <Form.Message for={"name"}/>
+                </HelpBlock>
+              </FormGroup>
 
-          <FormGroup for="email" controlId="field--email">
-            <Form.Field className="form-control" name="email" placeholder="Email*"/>
-            <HelpBlock>
-              <Form.Message for="email"/>
-            </HelpBlock>
-          </FormGroup>
+              <FormGroup for="email" controlId="field--email">
+                <Form.Field className="form-control" name="email" placeholder="Email*"/>
+                <HelpBlock>
+                  <Form.Message for="email"/>
+                </HelpBlock>
+              </FormGroup>
 
-          <FormGroup for="subject" controlId="field--subject">
-            <Form.Field className="form-control" name="subject" placeholder="Subject*"/>
-            <HelpBlock>
-              <Form.Message for="subject"/>
-            </HelpBlock>
-          </FormGroup>
+              <FormGroup for="subject" controlId="field--subject">
+                <Form.Field className="form-control" name="subject" placeholder="Subject*"/>
+                <HelpBlock>
+                  <Form.Message for="subject"/>
+                </HelpBlock>
+              </FormGroup>
 
-          <FormGroup controlId="field--message">
-            <Form.Field className="form-control" name="message" type="textarea" placeholder="Message"/>
-          </FormGroup>
+              <FormGroup controlId="field--message">
+                <Form.Field className="form-control" name="message" type="textarea" placeholder="Message"/>
+              </FormGroup>
 
-          <Form.Button type="submit" className="big-button">Submit</Form.Button>
-        </Form>
+              <Form.Button type="submit" className="big-button">Submit</Form.Button>
+            </Form>
+          </div>
+        ) : (
+          <div>
+            <h1>Thank you!</h1>
+            <p>
+              We'll get back to you soon.
+            </p>
+          </div>
+        )}
       </div>
     )
   }

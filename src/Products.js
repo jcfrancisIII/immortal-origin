@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
-import axios from 'axios'
+import jsonp from 'jsonp'
 
 class Products extends Component {
   constructor(props) {
@@ -12,16 +12,26 @@ class Products extends Component {
 
   componentDidMount() {
     var _this = this
+
+    //for dev ebay service
+    //.get("/services/search/FindingService/v1?OPERATION-NAME=findItemsAdvanced&SECURITY-APPNAME=JamesFra-Immortal-PRD-b8e35c535-2b37f584&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&itemFilter(0).name=Seller&itemFilter(0).value(0)=immortalorigin&itemFilter(1).name=LocatedIn&itemFilter(1).value=WorldWide&paginationInput.entriesPerPage=5")
+
     this.serverRequest = 
-      axios
-        .get("/services/search/FindingService/v1?OPERATION-NAME=findItemsAdvanced&SECURITY-APPNAME=JamesFra-Immortal-PRD-b8e35c535-2b37f584&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&itemFilter(0).name=Seller&itemFilter(0).value(0)=immortalorigin&itemFilter(1).name=LocatedIn&itemFilter(1).value=WorldWide&paginationInput.entriesPerPage=5")
-        .then(function(result) {    
-          //console.log(result.data.findItemsAdvancedResponse[0].searchResult[0].item)
-          //console.log(result.data.findItemsAdvancedResponse[0].searchResult[0].item[0].sellingStatus[0].currentPrice[0])
-          _this.setState({
-            jobs: result.data.findItemsAdvancedResponse[0].searchResult[0].item
-          })
-        })
+      jsonp(
+        "https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsAdvanced&SECURITY-APPNAME=JamesFra-Immortal-PRD-b8e35c535-2b37f584&RESPONSE-DATA-FORMAT=JSONP&REST-PAYLOAD&itemFilter(0).name=Seller&itemFilter(0).value(0)=immortalorigin&itemFilter(1).name=LocatedIn&itemFilter(1).value=WorldWide&paginationInput.entriesPerPage=5",
+        null,
+        function(err, data) {
+          if (err) {
+            console.error(err.message)
+          } else {
+            //console.log(result.data.findItemsAdvancedResponse[0].searchResult[0].item)
+            //console.log(data.findItemsAdvancedResponse[0].searchResult[0].item[0].sellingStatus[0].currentPrice[0])
+            _this.setState({
+              jobs: data.findItemsAdvancedResponse[0].searchResult[0].item
+            })
+          }
+        }
+      )        
   }
 
   render() {
