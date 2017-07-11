@@ -10,7 +10,7 @@ const Home = () => (
         Immortal Origin specializes in returned and overstock merchandise from big box retailers, with a focus on electronics. <br /><br />
         We have built a reputation of providing excellent customer service and quality products on our online selling platforms.<br /><br />
       </h1>
-      <a href="http://www.ebay.com/usr/immortalorigin" className="big-button">
+      <a href="https://www.ebay.com/sch/immortalorigin/m.html?_nkw=&_armrs=1&_ipg=&_from=&rt=nc&_dmd=2" target="_blank" className="big-button">
         Shop on eBay
       </a>
     </div>

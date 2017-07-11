@@ -66,7 +66,7 @@ class Contact extends Component {
 
     axios({
       method: 'post',
-      url: 'https://formspree.io/jamescecilfrancis@gmail.com', 
+      url: 'https://formspree.io/sales@immortalorigin.com', 
       data: this.state.model,
       dataType: 'json'
     })
@@ -84,56 +84,58 @@ class Contact extends Component {
 
   render() {
     return (
-      <div className="container contact">
-        {this.state.notSubmitted ? (
-          <div>
-            <h1>Contact Us</h1>
-            <p>
-              Contact us for any questions, wholesale opportunities, or if you have inventory you're looking to sell.
-            </p>
-            <Form
-              schema={this.modelSchema}
-              defaultValue={this.modelSchema.default()}
-              value={this.state.model}
-              onChange={this.handleChange}
-              onSubmit={this.handleSubmit}
-            >
-              <FormGroup for={"name"} controlId="field--name">
-                <Form.Field className="form-control" name="name" placeholder="Name*"/>
-                <HelpBlock>
-                  <Form.Message for={"name"}/>
-                </HelpBlock>
-              </FormGroup>
+      <div className="container">
+        <div className="container contact">
+          {this.state.notSubmitted ? (
+            <div>
+              <h1>Contact Us</h1>
+              <p>
+                Contact us for any questions, wholesale opportunities, or if you have inventory you're looking to sell.
+              </p>
+              <Form
+                schema={this.modelSchema}
+                defaultValue={this.modelSchema.default()}
+                value={this.state.model}
+                onChange={this.handleChange}
+                onSubmit={this.handleSubmit}
+              >
+                <FormGroup for={"name"} controlId="field--name">
+                  <Form.Field className="form-control" name="name" placeholder="Name*"/>
+                  <HelpBlock>
+                    <Form.Message for={"name"}/>
+                  </HelpBlock>
+                </FormGroup>
 
-              <FormGroup for="email" controlId="field--email">
-                <Form.Field className="form-control" name="email" placeholder="Email*"/>
-                <HelpBlock>
-                  <Form.Message for="email"/>
-                </HelpBlock>
-              </FormGroup>
+                <FormGroup for="email" controlId="field--email">
+                  <Form.Field className="form-control" name="email" placeholder="Email*"/>
+                  <HelpBlock>
+                    <Form.Message for="email"/>
+                  </HelpBlock>
+                </FormGroup>
 
-              <FormGroup for="subject" controlId="field--subject">
-                <Form.Field className="form-control" name="subject" placeholder="Subject*"/>
-                <HelpBlock>
-                  <Form.Message for="subject"/>
-                </HelpBlock>
-              </FormGroup>
+                <FormGroup for="subject" controlId="field--subject">
+                  <Form.Field className="form-control" name="subject" placeholder="Subject*"/>
+                  <HelpBlock>
+                    <Form.Message for="subject"/>
+                  </HelpBlock>
+                </FormGroup>
 
-              <FormGroup controlId="field--message">
-                <Form.Field className="form-control" name="message" type="textarea" placeholder="Message"/>
-              </FormGroup>
+                <FormGroup controlId="field--message">
+                  <Form.Field className="form-control" name="message" type="textarea" placeholder="Message"/>
+                </FormGroup>
 
-              <Form.Button type="submit" className="big-button">Submit</Form.Button>
-            </Form>
-          </div>
-        ) : (
-          <div>
-            <h1>Thank you!</h1>
-            <p>
-              We'll get back to you soon.
-            </p>
-          </div>
-        )}
+                <Form.Button type="submit" className="big-button">Submit</Form.Button>
+              </Form>
+            </div>
+          ) : (
+            <div>
+              <h1>Thank you!</h1>
+              <p>
+                We'll get back to you soon.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     )
   }
