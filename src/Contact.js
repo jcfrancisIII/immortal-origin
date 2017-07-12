@@ -54,13 +54,13 @@ class Contact extends Component {
       model: model
     })
 
-    console.log('change: ' + this.state)
+    // console.log('change: ' + this.state)
 
   }
 
   handleSubmit(event) {
 
-    console.log(this.state)    
+    // console.log(this.state)    
 
     const _this = this
 
