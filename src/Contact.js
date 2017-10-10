@@ -29,24 +29,14 @@ class Contact extends Component {
       notSubmitted: true
     }
 
-    //this.handleInputChange = this.handleInputChange.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  // handleInputChange(event) {
-  //   const target = event.target
-  //   const value = target.value
-  //   const name = target.name
-
-  //   this.setState({
-  //     [name]: value
-  //   })
-  // }
-
-  flip() {
-    var s = 'wnzrfprpvysenapvf@tznvy.pbz';
-    return s.replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);})
+  alphabetFlip() {
+    // const jc = 'wnzrfprpvysenapvf@tznvy.pbz';
+    const anil = 'fnyrf@vzzbegnybevtva.pbz';
+    return anil.replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);})
   }
 
   handleChange(model) {
@@ -64,9 +54,11 @@ class Contact extends Component {
 
     const _this = this
 
+    const anil = this.alphabetFlip();
+
     axios({
       method: 'post',
-      url: 'https://formspree.io/sales@immortalorigin.com', 
+      url: 'https://formspree.io/' + anil, 
       data: this.state.model,
       dataType: 'json'
     })
@@ -139,155 +131,6 @@ class Contact extends Component {
       </div>
     )
   }
-
-  /*
-  constructor(props) {
-    super(props)
-    
-    this.state = {
-      form: {
-        firstName: '',
-        lastName: '',
-        email: '',
-        subject: '',
-        message: ''
-      }
-    }
-
-    this.modelSchema = 
-
-    this.getValidationFirstName = this.getValidationFirstName.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  getValidationFirstName() {
-    if ( this.state.form.firstName ) {
-      return 'success'
-    } 
-    else if ( this.state.form.firstName === '' ) {
-      return 'error'
-    }
-  }
-
-  getValidationState() {
-
-  }
-
-  handleChange(e) {
-    let form = this.state.form
-    form[e.target.name] = e.target.value
-    this.setState({ form })
-  }
-
-  handleSubmit(e) {
-
-  }
-
-  render() {
-    return (
-      <div className="container contact">
-        <h1>Contact Us</h1>
-        <p>
-          Contact us for any questions, wholesale opportunities, or if you have inventory you're looking to sell.
-        </p>
-        <form onSubmit={this.handleSubmit}>
-
-
-          <FormGroup
-            controlId="firstName"
-            validationState={this.getValidationFirstName()}
-            bsSize="large"
-          >
-            <FormControl
-              type="text"
-              value={this.state.form.firstName}
-              name="firstName"
-              placeholder="First Name"
-              onChange={this.handleChange}
-            />
-            <FormControl.Feedback />
-            { this.getValidationFirstName() === 'error' &&
-              <HelpBlock>First name is required.</HelpBlock>
-            }
-          </FormGroup>
-
-
-          <FormGroup
-            controlId="lastName"
-            validationState={this.getValidationState()}
-            bsSize="large"
-          >
-            <FormControl
-              type="text"
-              value={this.state.form.lastName}
-              placeholder="Last Name"
-              onChange={this.handleChange}
-            />
-            <FormControl.Feedback />
-            <HelpBlock>Last name is required.</HelpBlock>
-          </FormGroup>
-
-
-          <FormGroup
-            controlId="email"
-            validationState={this.getValidationState()}
-            bsSize="large"
-          >
-            <FormControl
-              type="text"
-              value={this.state.form.email}
-              placeholder="Email"
-              onChange={this.handleChange}
-            />
-            <FormControl.Feedback />
-            <HelpBlock>Email is required.</HelpBlock>
-          </FormGroup>
-
-
-          <FormGroup
-            controlId="subject"
-            validationState={this.getValidationState()}
-            bsSize="large"
-          >
-            <FormControl
-              type="text"
-              value={this.state.form.subject}
-              placeholder="Subject"
-              onChange={this.handleChange}
-            />
-            <FormControl.Feedback />
-            <HelpBlock>Subject is required.</HelpBlock>
-          </FormGroup>
-
-
-          <FormGroup
-            controlId="message"
-            validationState={this.getValidationState()}
-            bsSize="large"
-          >
-            <FormControl
-              type="text"
-              componentClass="textarea"
-              value={this.state.form.message}
-              placeholder="Your Message"
-              onChange={this.handleChange}
-            />
-            <FormControl.Feedback />
-            <HelpBlock>Message is required.</HelpBlock>
-          </FormGroup>
-
-          <button 
-            type="submit" 
-            className="big-button"
-          >
-            Submit 
-          </button>
-
-        </form>
-      </div>
-    )
-  } */
 }
 
 export default Contact
