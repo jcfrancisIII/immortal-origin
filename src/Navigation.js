@@ -3,7 +3,9 @@ import logo from './images/logo.svg'
 import {
 	Navbar,
 	NavItem,
-	Nav
+  Nav,
+  NavDropdown,
+  MenuItem
 } from 'react-bootstrap'
 import {
 	LinkContainer
@@ -29,6 +31,23 @@ class Navigation extends Component {
             <LinkContainer to="/products">
               <NavItem>Products</NavItem>
             </LinkContainer>
+            <NavDropdown title="Repair Services">
+              <MenuItem>
+                <LinkContainer to="/iphone">
+                  <NavItem>iPhone</NavItem>
+                </LinkContainer>
+              </MenuItem>
+              <MenuItem>
+                <LinkContainer to="/ipad">
+                  <NavItem>iPad</NavItem>
+                </LinkContainer>
+              </MenuItem>
+              <MenuItem>
+                <LinkContainer to="/macbook">
+                  <NavItem>Macbook</NavItem>
+                </LinkContainer>
+              </MenuItem>
+            </NavDropdown>
             <LinkContainer to="/contact">
               <NavItem>Contact</NavItem>
             </LinkContainer>

@@ -136,9 +136,13 @@
   }
 
   .home h1 {
-    max-width: 989px;
+    max-width: 760px;
     margin: 0 auto;
     display: block;
+    line-height: 1.7;
+    font-weight: 900;
+    font-size: 26px;
+    color: #000;
   }
 
   @media (max-width: 500px) {
@@ -148,7 +152,7 @@
     }
     
     .home h1 {
-      font-size: 25px;
+      font-size: 21px;
     }
 
     .content.container {
@@ -223,6 +227,73 @@
   }
 
 /* end products style */
+
+/* services style */
+
+.service {
+  padding-bottom: 5em;
+}
+
+.service .jumbotron {
+  background-color: #dbdbdb;
+}
+
+.service .jumbotron img {
+  float: left;
+  mix-blend-mode: difference;
+}
+
+.service .jumbotron h1 {
+  font-size: 49px;
+  margin-left: 32px;
+  float: left;
+  margin-top: 68px;
+  color: #000;
+}
+
+.service.container h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.service .bigImg {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.service .tabletPricing {
+  max-width: 820px;
+}
+
+.service .iphonePricing {
+  max-width: 864px;
+}
+
+.service .jumbotron.products h1 {
+  margin-top: 0px;
+}
+
+.service .products .store {
+  max-width: 1328px;
+  margin-bottom: 2em;
+}
+
+@media (max-width: 992px) {
+  .service .jumbotron h1, .service .jumbotron img {
+    float: none;
+  }
+  .service .jumbotron h1 {
+    margin: 30px 0 0;
+  }
+  .service .jumbotron img {
+    max-width: 100px;
+  }
+  .service .jumbotron {
+    text-align: center;
+  }
+}
+
+/* end services style */
 
 /* contact style */
 

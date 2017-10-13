@@ -32,7 +32,7 @@ class Contact extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-
+  
   alphabetFlip() {
     // const jc = 'wnzrfprpvysenapvf@tznvy.pbz';
     const anil = 'fnyrf@vzzbegnybevtva.pbz';
@@ -128,6 +128,42 @@ class Contact extends Component {
             </div>
           )}
         </div>
+        <div className="container map row">
+          <div className="col-sm-3">
+            <h2>
+              Phone Number
+            </h2>
+            <p>
+              <a href="tel:2132322345" role="button">
+                940&middot;243&middot;2880 
+              </a>
+            </p>
+            <h2>
+              Address
+            </h2>
+            <p>
+              10964 Shady Trail<br />
+              Dallas, TX 75220<br />
+              <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/10964+Shady+Trail,+Dallas,+TX+75220/@32.8803293,-96.8917069,17z/data=!3m1!4b1!4m5!3m4!1s0x864e9d65238bbcd5:0x6038375e793bf793!8m2!3d32.8803293!4d-96.8895182">
+                Get Directions
+              </a>
+            </p>
+            <h2>
+              Hours
+            </h2>
+            <p>
+              Mon &mdash; Fri<br />
+              10:00am &mdash; 6:00pm<br />
+              Saturday<br />
+              10:00am &mdash; 4:00pm<br />
+              Sunday<br />
+              Closed
+            </p>
+          </div>
+          <div className="col-sm-9">
+            <div id="map"></div>
+          </div>
+        </div> 
       </div>
     )
   }
