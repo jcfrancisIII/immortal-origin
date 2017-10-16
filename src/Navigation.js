@@ -31,7 +31,7 @@ class Navigation extends Component {
             <LinkContainer to="/products">
               <NavItem>Products</NavItem>
             </LinkContainer>
-            <NavDropdown title="Repair Services">
+            <NavDropdown title="Repair Services" id="servicesDropdown">
               <MenuItem>
                 <LinkContainer to="/iphone">
                   <NavItem>iPhone</NavItem>

@@ -3,6 +3,7 @@ import axios from 'axios'
 import Form from 'react-formal'
 import yup from 'yup'
 import types from 'react-formal-bootstrap'
+import GoogleMapsLoader from 'google-maps'
 
 import FormGroup from 'react-formal-bootstrap/lib/FormGroup'
 
@@ -32,7 +33,28 @@ class Contact extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-  
+
+  componentDidMount() {
+    const el = document.getElementById('map')
+    GoogleMapsLoader.KEY = 'AIzaSyBS39-4S7P5tdoTC7KgowsGU8HlyL81S0w'
+    GoogleMapsLoader.load(function(google) {
+      initMap()
+      
+      function initMap() {
+        var uluru = {lat: 32.8803293, lng: -96.8917069};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    });
+    
+  }
+
   alphabetFlip() {
     // const jc = 'wnzrfprpvysenapvf@tznvy.pbz';
     const anil = 'fnyrf@vzzbegnybevtva.pbz';
@@ -128,16 +150,8 @@ class Contact extends Component {
             </div>
           )}
         </div>
-        <div className="container map row">
+        <div className="container map row text-left">
           <div className="col-sm-3">
-            <h2>
-              Phone Number
-            </h2>
-            <p>
-              <a href="tel:2132322345" role="button">
-                940&middot;243&middot;2880 
-              </a>
-            </p>
             <h2>
               Address
             </h2>
@@ -152,13 +166,11 @@ class Contact extends Component {
               Hours
             </h2>
             <p>
-              Mon &mdash; Fri<br />
-              10:00am &mdash; 6:00pm<br />
-              Saturday<br />
-              10:00am &mdash; 4:00pm<br />
-              Sunday<br />
-              Closed
+              By appointment only.
             </p>
+            <h4>
+              <a href="https://www.facebook.com/ImmortalOrigin/">Follow us on Facebook</a>
+            </h4>
           </div>
           <div className="col-sm-9">
             <div id="map"></div>
